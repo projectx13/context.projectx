@@ -16,7 +16,7 @@ except:
 
 import requests
 
-from elementum.logger import log
+from projectx.logger import log
 
 ADDON = xbmcaddon.Addon()
 api_key = ""
@@ -34,7 +34,7 @@ def doAssign():
 
     log.debug("Assigning for: DBID=%s, IMDB=%s, MediaType=%s" % (dbid, imdbnumber, mediatype))
 
-    # xbmc.executebuiltin("XBMC.RunPlugin(plugin://plugin.video.elementum/library/movie/play/%s)" % imdbnumber)
+    # xbmc.executebuiltin("XBMC.RunPlugin(plugin://plugin.video.projectx/library/movie/play/%s)" % imdbnumber)
 
 
 def doPlay():
@@ -45,8 +45,8 @@ def doPlay():
 
     log.info("Playing for: DBID=%s, MediaType=%s" % (dbid, mediatype))
 
-    url = "plugin://plugin.video.elementum/context/%s/%s/play" % (mediatype, dbid)
-    log.info("Starting Elementum with: %s" % url)
+    url = "plugin://plugin.video.projectx/context/%s/%s/play" % (mediatype, dbid)
+    log.info("Starting projectx with: %s" % url)
     xbmc.Player().play(url)
 
 
@@ -58,8 +58,8 @@ def doDownload():
 
     log.info("Downloading for: DBID=%s, MediaType=%s" % (dbid, mediatype))
 
-    url = "plugin://plugin.video.elementum/context/%s/%s/download" % (mediatype, dbid)
-    log.info("Starting Elementum with: %s" % url)
+    url = "plugin://plugin.video.projectx/context/%s/%s/download" % (mediatype, dbid)
+    log.info("Starting projectx with: %s" % url)
     xbmc.Player().play(url)
 
 
@@ -68,7 +68,7 @@ def getDbId():
     truelabel = sys.listitem.getLabel()
     if infolabel == truelabel and xbmc.getInfoLabel('ListItem.DBID'):
         dbid = xbmc.getInfoLabel('ListItem.DBID')
-    elif 'elementum' in sys.listitem.getfilename():
+    elif 'projectx' in sys.listitem.getfilename():
         dbid = sys.listitem.getfilename().split('?')[0].rstrip('/').split('/')[-1]
     else:
         if xbmc.getInfoLabel('ListItem.Episode') and xbmc.getInfoLabel('ListItem.TVSHowTitle') and xbmc.getInfoLabel('ListItem.Season'):

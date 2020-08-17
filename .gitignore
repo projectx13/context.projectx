@@ -58,4 +58,4 @@ target/
 # Other
 resources/bin/
 resources/web/static/js/*.map
-plugin.video.elementum-*.zip
+plugin.video.projectx-*.zip

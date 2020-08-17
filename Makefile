@@ -1,8 +1,8 @@
-NAME = context.elementum
+NAME = context.projectx
 GIT = git
 GIT_VERSION = $(shell $(GIT) describe --abbrev=0 --tags)
 GIT_USER = elgatito
-GIT_REPOSITORY = context.elementum
+GIT_REPOSITORY = context.projectx
 TAG_VERSION = $(subst v,,$(GIT_VERSION))
 LAST_COMMIT = $(shell $(GIT) log -1 --pretty=\%B)
 VERSION = $(shell sed -ne "s/.*version=\"\([0-9a-z\.\-]*\)\" provider-name=\"elgatito\".*/\1/p" addon.xml)
